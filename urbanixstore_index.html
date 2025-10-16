@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>URBANIXSTORE.UZ — Streetwear</title>
+  <meta name="description" content="URBANIX — premium streetwear. Futbolka, Shim, Oyoq kiyim, Aksessuar, Hudiy, Jimpirlar. Zakaz: @khursh1d_fx1" />
+  <style>
+    :root{
+      --bg:#0b0b0b;
+      --card:#0f0f0f;
+      --muted:#9aa0a6;
+      --accent:#ffd166;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --max:1100px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(180deg,#050505 0%, var(--bg) 100%); color:#fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      display:flex; align-items:flex-start; justify-content:center; padding:36px 18px;
+    }
+    .wrap{width:100%; max-width:var(--max);} 
+
+    header{display:flex;align-items:center;gap:16px;padding:18px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px);}
+    .logo{display:flex;flex-direction:column}
+    .brand{font-weight:800;letter-spacing:1px;font-size:20px}
+    .tag{font-size:12px;color:var(--muted);margin-top:4px}
+
+    .hero{margin-top:20px;display:grid;grid-template-columns:1fr 320px;gap:20px;align-items:start}
+    .left{background:var(--card);padding:18px;border-radius:16px}
+    .right{background:var(--glass);padding:18px;border-radius:16px;min-height:200px}
+
+    .categories{display:flex;flex-wrap:wrap;gap:12px}
+    .cat{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px 12px;border-radius:12px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+    .cat span{font-size:14px;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:10px}
+    .img{height:180px;border-radius:10px;overflow:hidden;background:#111;display:flex;align-items:center;justify-content:center}
+    .img img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1);transition:transform .45s cubic-bezier(.2,.9,.2,1)}
+    .card:hover .img img{transform:scale(1.06)}
+    .info{display:flex;align-items:center;justify-content:space-between}
+    .title{font-weight:700}
+    .price{color:var(--accent);font-weight:700}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);cursor:pointer;text-decoration:none;color:inherit}
+    .btn:hover{transform:translateY(-3px)}
+
+    .footer{margin-top:18px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));display:flex;justify-content:space-between;align-items:center}
+    .socials{display:flex;gap:12px;align-items:center}
+    .small{color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .img{height:150px}
+    }
+    @media (max-width:520px){
+      body{padding:18px}
+      .grid{grid-template-columns:1fr}
+      .img{height:220px}
+      .brand{font-size:18px}
+    }
+
+    /* subtle animations */
+    .fade-in{opacity:0;transform:translateY(6px);animation:fade .6s ease forwards}
+    @keyframes fade{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="fade-in">
+      <div class="logo">
+        <div class="brand">URBANIX<span style="color:var(--accent);">STORE</span></div>
+        <div class="tag">Premium Streetwear • Zakaz: @khursh1d_fx1</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:12px;align-items:center">
+        <a class="btn" href="https://t.me/khursh1d_fx1" target="_blank">Zakaz berish</a>
+        <a class="btn" href="https://instagram.com/khursh1d_fx1" target="_blank">Instagram</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="left fade-in">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h2 style="margin:0">Kategoriyalar</h2>
+          <div class="small">Urbanix • 2025</div>
+        </div>
+
+        <div class="categories" style="margin-top:12px">
+          <div class="cat" data-filter="all"><strong>All</strong></div>
+          <div class="cat" data-filter="futbolka">👕 Futbolka</div>
+          <div class="cat" data-filter="shim">👖 Shim</div>
+          <div class="cat" data-filter="oyoq">👟 Oyoq kiyim</div>
+          <div class="cat" data-filter="aks">⌚ Aksessuar</div>
+          <div class="cat" data-filter="hudi">🧥 Hudiy</div>
+          <div class="cat" data-filter="jimpir">🧶 Jimpir</div>
+        </div>
+
+        <div class="grid" id="catalog">
+          <!-- sample items -->
+
+          <div class="card" data-cat="futbolka">
+            <div class="img"><img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=60" alt="Futbolka"></div>
+            <div class="info"><div>
+              <div class="title">URB Classic Tee</div>
+              <div class="small">Premium cotton</div>
+            </div>
+            <div style="text-align:right">
+              <div class="price">$22</div>
+              <a class="btn" href="https://t.me/khursh1d_fx1" target="_blank">Zakaz berish</a>
+            </div></div>
+          </div>
+
+          <div class="card" data-cat="shim">
+            <div class="img"><img src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=800&q=60" alt="Shim"></div>
+            <div class="info"><div>
+              <div class="title">Cargo Slim Pants</div>
+              <div class="small">Street fit</div>
+            </div>
+            <div style="text-align:right">
+              <div class="price">$35</div>
+              <a class="btn" href="https://t.me/khursh1d_fx1" target="_blank">Zakaz berish</a>
+            </div></div>
+          </div>
+
+          <div class="card" data-cat="oyoq">
+            <div class="img"><img src="https://images.unsplash.com/photo-1528701800489-476c3b3d1f64?auto=format&fit=crop&w=800&q=60" alt="Krossovka"></div>
+            <div class="info"><div>
+              <div class="title">Urban Runner</div>
+              <div class="small">Limited drop</div>
+            </div>
+            <div style="text-align:right">
+              <div class="price">$60</div>
+              <a class="btn" href="https://t.me/khursh1d_fx1" target="_blank">Zakaz berish</a>
+            </div></div>
+          </div>
+
+          <div class="card" data-cat="aks">
+            <div class="img"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=60" alt="Aksessuar"></div>
+            <div class="info"><div>
+              <div class="title">URBN Cap</div>
+              <div class="small">One size</div>
+            </div>
+            <div style="text-align:right">
+              <div class="price">$15</div>
+              <a class="btn" href="https://t.me/khursh1d_fx1" target="_blank">Zakaz berish</a>
+            </div></div>
+          </div>
+
+          <div class="card" data-cat="hudi">
+            <div class="img"><img src="https://images.unsplash.com/photo-1602810313293-48d2d0f7f3f6?auto=format&fit=crop&w=800&q=60" alt="Hudiy"></div>
+            <div class="info"><div>
+              <div class="title">Soft Hudi</div>
+              <div class="small">Warm & cozy</div>
+            </div>
+            <div style="text-align:right">
+              <div class="price">$45</div>
+              <a class="btn" href="https://t.me/khursh1d_fx1" target="_blank">Zakaz berish</a>
+            </div></div>
+          </div>
+
+          <div class="card" data-cat="jimpir">
+            <div class="img"><img src="https://images.unsplash.com/photo-1602810313293-48d2d0f7f3f6?auto=format&fit=crop&w=800&q=60" alt="Jimpir"></div>
+            <div class="info"><div>
+              <div class="title">URB Knit Jumper</div>
+              <div class="small">Handfeel knit</div>
+            </div>
+            <div style="text-align:right">
+              <div class="price">$38</div>
+              <a class="btn" href="https://t.me/khursh1d_fx1" target="_blank">Zakaz berish</a>
+            </div></div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <aside class="right fade-in">
+        <h3 style="margin-top:0">URBANIX Highlights</h3>
+        <p class="small">Premium drops, limited quantities. Har bir buyurtma oldidan rasmlar va o‘lcham tasdiqlanadi. To‘liq katalogni Instagram yoki Telegram orqali so‘rang.</p>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+          <a class="btn" href="https://t.me/khursh1d_fx1" target="_blank">Zakaz: @khursh1d_fx1</a>
+          <a class="btn" href="https://instagram.com/khursh1d_fx1" target="_blank">Instagram: @khursh1d_fx1</a>
+          <a class="btn" href="mailto:urbanix@domain.uz">Email: urbanix@domain.uz</a>
+        </div>
+
+        <div style="margin-top:18px">
+          <div class="small">Tezkor kontakt</div>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <div class="card" style="padding:10px;min-width:0;flex:1">
+              <div class="small">Foydalanuvchi</div>
+              <div style="font-weight:700">@khursh1d_fx1</div>
+            </div>
+            <div class="card" style="padding:10px;min-width:0;flex:1">
+              <div class="small">Joylashuv</div>
+              <div style="font-weight:700">Toshkent</div>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </section>
+
+    <div class="footer fade-in">
+      <div class="small">© URBANIXSTORE 2025 — All rights reserved</div>
+      <div class="socials"><a class="small" href="https://instagram.com/khursh1d_fx1" target="_blank">Instagram</a><a class="small" href="https://t.me/khursh1d_fx1" target="_blank">Telegram</a></div>
+    </div>
+  </div>
+
+  <script>
+    // Category filter
+    document.querySelectorAll('.cat').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.card').forEach(c=>{
+          if(f==='all' || c.dataset.cat===f) c.style.display='flex'; else c.style.display='none';
+        })
+      })
+    })
+
+    // small animation reveal
+    document.querySelectorAll('.fade-in').forEach((el,i)=>{el.style.animationDelay=(i*120)+'ms'})
+  </script>
+</body>
+</html>
